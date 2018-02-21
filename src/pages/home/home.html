@@ -1,18 +1,45 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
+    <ion-navbar>
+        <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
+        <ion-title>Home</ion-title>
+    </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+<ion-content>
+    <!-- <button ion-button (click)="databaseInit()">Init Database</button>
+    <button ion-button (click)="addData()">Add databse</button>
+    <button ion-button (click)="fetchData()">fetch database</button> -->
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+    <ion-item>
+        <ion-input type="text" [(ngModel)]="username" placeholder="Enter Username"></ion-input>
+    </ion-item>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+    <button ion-button color="danger" (click)="addData()"> Save </button>
+
+
+    <label for="">Send Message</label>
+    <ion-item>
+        <ion-input type="number" [(ngModel)]="mobilenumber" placeholder="Enter Mobile Number" maxlength="10"></ion-input>
+    </ion-item>
+
+    <button ion-button color="danger" (click)="SendMsg()"> Save </button>
+
+
+    <ion-list>
+        <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+
+
+    </ion-list>
+
+    <ion-list>
+
+        <ion-item href="#" *ngFor="let x of items">
+            <div *ngIf="x.name != undefined">
+
+            </div>{{x.name}}
+        </ion-item>
+
+    </ion-list>
 </ion-content>
